@@ -107,9 +107,30 @@ let { message } = props;
 
 分割代入をすると、その変数はリアクティビティを失い、ただの文字列や数値になってしまいます。
 
-### リアクティビティを維持する方法
+### Vue 3.5以降での改善 🎉
 
-`props`の特定のプロパティをリアクティブなまま扱いたい場合は、`toRefs`または`toRef`ユーティリティを使用します。
+Vue 3.5以降では、propsの分割代入がリアクティビティを維持するようになりました！
+
+```vue:ChildComponent.vue
+<script setup>
+const props = defineProps(['message']);
+
+// ✅ Vue 3.5以降では、これでリアクティビティが維持される
+const { message } = props;
+
+// 親コンポーネントでmessageが変更されると、このmessage変数も自動的に更新される
+</script>
+
+<template>
+  <p>{{ message }}</p>
+</template>
+```
+
+この改善により、`toRefs`を使わずに直接分割代入できるようになり、コードがよりシンプルになりました。
+
+### Vue 3.4以前でのリアクティビティを維持する方法
+
+Vue 3.4以前では、`props`の特定のプロパティをリアクティブなまま扱いたい場合は、`toRefs`または`toRef`ユーティリティを使用する必要がありました。
 
 ```vue:ChildComponent.vue
 <script setup>
