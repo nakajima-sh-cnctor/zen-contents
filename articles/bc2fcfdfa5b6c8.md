@@ -2,7 +2,7 @@
 title: "Vue3のpropsについて調べてみた"
 emoji: "🐙"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Vue3","JavaScript","初心者向け"]
+topics: ["Vue3","JavaScript","TypeScript","コンポーネント設計","リアクティビティ"]
 published: false
 ---
 
